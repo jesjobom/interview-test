@@ -1,12 +1,24 @@
 package com.travix.medusa.busyflights.domain.busyflights;
 
-public class BusyFlightsRequest {
+import com.travix.medusa.busyflights.domain.DomainValidator;
+
+public class BusyFlightsRequest extends DomainValidator {
 
     private String origin;
     private String destination;
     private String departureDate;
     private String returnDate;
     private int numberOfPassengers;
+
+    @Override
+    public boolean isValid() {
+        if(origin == null || destination == null || departureDate == null || returnDate == null || numberOfPassengers < 1 || numberOfPassengers > 4) {
+            super.validationMessage = "Invalid Request";
+            return false;
+        }
+        
+        return true;
+    }
 
     public String getOrigin() {
         return origin;
