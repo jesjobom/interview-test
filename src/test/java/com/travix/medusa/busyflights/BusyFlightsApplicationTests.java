@@ -9,7 +9,6 @@ import com.travix.medusa.busyflights.domain.toughjet.ToughJetResponse;
 import com.travix.medusa.busyflights.mock.CrazyAirClientMock;
 import com.travix.medusa.busyflights.mock.ToughJetClientMock;
 import java.nio.charset.Charset;
-import java.util.Collection;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
@@ -114,8 +113,9 @@ public class BusyFlightsApplicationTests {
                 .andExpect(content().contentType(contentType))
                 .andReturn();
         
-        Collection responses = mapper.readValue(result.getResponse().getContentAsString(), TypeFactory.defaultInstance().constructCollectionType(List.class, BusyFlightsResponse.class));
+        List<BusyFlightsResponse> responses = mapper.readValue(result.getResponse().getContentAsString(), TypeFactory.defaultInstance().constructCollectionType(List.class, BusyFlightsResponse.class));
         
         Assert.assertEquals(2, responses.size());
+        Assert.assertTrue(responses.get(0).getFare() < responses.get(1).getFare());
     }
 }

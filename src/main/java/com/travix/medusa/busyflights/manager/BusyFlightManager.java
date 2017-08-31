@@ -34,6 +34,13 @@ public class BusyFlightManager {
         return busyFlightsResponses;
     }
     
+    /**
+     * TODO Through a simple abstraction it'd be possible to search in all companies 
+     * in a single step, by acquiring all registered beans of a base class.
+     * 
+     * @param req
+     * @return 
+     */
     private List<BusyFlightsResponse> searchCrazyAirFlights(BusyFlightsRequest req) {
         CrazyAirRequest crazyAirReq = new CrazyAirRequest();
         crazyAirReq.setOrigin(req.getDepartureDate());
