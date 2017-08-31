@@ -21,7 +21,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.web.servlet.MvcResult;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -122,5 +121,6 @@ public class BusyFlightsApplicationTests {
         
         Assert.assertEquals(2, responses.size());
         Assert.assertTrue(responses.get(0).getFare() < responses.get(1).getFare());
+        Assert.assertEquals(2500.00, responses.get(0).getFare(), 0);
     }
 }
