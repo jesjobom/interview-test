@@ -21,6 +21,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.web.servlet.MvcResult;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -85,6 +86,10 @@ public class BusyFlightsApplicationTests {
         busyFlightsRequest.setDestination("AMS");
         busyFlightsRequest.setNumberOfPassengers(2);
         
+        /*
+        TODO With more rules to cover with tests it would be a good idead to 
+        create a generator of mocks...
+        */
         CrazyAirResponse crazyAirResponse = new CrazyAirResponse();
         crazyAirResponse.setAirline("Airline Name");
         crazyAirResponse.setArrivalDate("2017-08-30 12:00:00");
