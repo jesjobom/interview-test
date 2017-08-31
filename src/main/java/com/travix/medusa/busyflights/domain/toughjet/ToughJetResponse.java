@@ -19,6 +19,10 @@ public class ToughJetResponse {
         this.carrier = carrier;
     }
 
+    public double getFinalPrice() {
+        return basePrice - (basePrice * discount / 100) + tax;
+    }
+    
     public double getBasePrice() {
         return basePrice;
     }

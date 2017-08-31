@@ -1,6 +1,6 @@
 package com.travix.medusa.busyflights.domain.busyflights;
 
-public class BusyFlightsResponse {
+public class BusyFlightsResponse implements Comparable<BusyFlightsResponse> {
     
     private String airline;
     private String supplier;
@@ -65,6 +65,9 @@ public class BusyFlightsResponse {
     public void setArrivalDatel(String arrivalDatel) {
         this.arrivalDatel = arrivalDatel;
     }
-    
-    
+
+    @Override
+    public int compareTo(BusyFlightsResponse o) {
+        return this.fare.compareTo(o.fare);
+    }
 }

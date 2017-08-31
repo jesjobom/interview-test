@@ -19,7 +19,7 @@ public abstract class DomainValidator {
         return validationMessage;
     }
 
-    public void setValidationMessage(String validationMessage) {
+    protected void setValidationMessage(String validationMessage) {
         this.validationMessage = validationMessage;
     }
 }
